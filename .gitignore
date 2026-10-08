@@ -1,4 +1,7 @@
 #outputs
-
 *.out
 *.bin
+
+#tests
+*.bf
+*.test
