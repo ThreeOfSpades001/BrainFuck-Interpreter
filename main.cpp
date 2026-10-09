@@ -12,4 +12,10 @@ int main (int argc, char** argv) {
 		std::cerr << "File did not open." << std::endl;
 		return 1;
 	}
+	std::string line;
+	while (std::getline(file, line)) {
+		for (int i = 0; i < line.length(); i++) {
+			std::cout << "not endl\n";
+		}
+	}
 }
