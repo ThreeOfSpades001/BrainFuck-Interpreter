@@ -5,17 +5,29 @@ class memory {
 	unsigned int cursor = 0;
 	std::vector<char> data = {'\0'};
 	public:
-	void left(int jmp = 1){
+	void right(int jmp = 1){
 		cursor += jmp;
 	}
-	void right(int jmp = 1){
-		cursor	-=1;
+	void left(int jmp = 1){
+		cursor -= jmp;
 	}
-	void operator++ {
+	void operator++(int unused) {
 		while ((cursor+1) > data.size()) {
 			data.push_back('\0');
 		}
 		data[cursor]++;
 	}
-}
+	void operator-- (int unused){
+		while ((cursor+1) > data.size()) {
+			data.push_back('\0');
+		}
+		data[cursor]--;
+	}
+	char out(){
+		return data[cursor];
+	}
+	void operator=(char in){
+		data[cursor] = in;
+	}
+};
 #endif
