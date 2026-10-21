@@ -15,7 +15,16 @@ int main (int argc, char** argv) {
 	std::string line;
 	while (std::getline(file, line)) {
 		for (int i = 0; i < line.length(); i++) {
-			std::cout << "not endl\n";
+			switch (line[i]){
+				case '+':
+					std::cout << "plus";
+					break;
+				case '>':
+					std::cout << "right";
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }
