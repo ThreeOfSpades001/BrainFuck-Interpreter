@@ -15,25 +15,22 @@ int main (int argc, char** argv) {
 		return 1;
 	}
 	std::vector<int> loop_pos = {0};
-	int loop_num = -1;
+	int loop_num = 0;
 	memory mem;
 	std::string line;
 	while (std::getline(file, line)) {
 		for (int i = 0; i < line.length(); i++) {
 			switch (line[i]){
 				case '+':
-					std::cout << "plus ";
 					mem++;
 					break;
 				case '-':
 					mem--;
 					break;
 				case '>':
-					std::cout << "right ";
 					mem.right();
 					break;
 				case '<':
-					std::cout << "left ";
 					mem.left();
 					break;
 				case '.':
@@ -43,18 +40,17 @@ int main (int argc, char** argv) {
 					mem = getchar();
 					break;
 				case '[':
-					std::cout << "open ";
 					loop_pos.push_back(i);
 					loop_num++;
 					break;
 				case ']':
-					i = (loop_pos[loop_num]+1);
-					mem--;
 					if (mem.out() == '\0'){
 						loop_pos.pop_back();
 						loop_num--;
 					}
-					std::cout << "close ";
+					else {
+						i = (loop_pos[loop_num]+0);
+					}
 					break;
 				default:
 					break;
