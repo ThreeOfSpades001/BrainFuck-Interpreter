@@ -2,7 +2,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 class memory {
-	unsigned int cursor = 0;
+	unsigned long int cursor = 0;
 	std::vector<char> data = {'\0'};
 	public:
 	void right(int jmp = 1){
@@ -24,9 +24,15 @@ class memory {
 		data[cursor]--;
 	}
 	char out(){
+		while ((cursor+1)>data.size()) {
+			data.push_back('\0');
+		}
 		return data[cursor];
 	}
 	void operator=(char in){
+		while ((cursor+1) > data.size()) {
+			data.push_back('\0');
+		}
 		data[cursor] = in;
 	}
 };
